@@ -36,11 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()))
                 .addFilterAfter(new JwtTokenVerifier(),JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/api/v1/home").hasAnyRole(
-                        AppUserRole.ADMIN.name(),
-                        AppUserRole.USER.name(),
-                        AppUserRole.SERVICE_USER.name()
-                )
                 .anyRequest()
                 .authenticated();
 
@@ -53,8 +48,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/api/v1/registration");
-        web.ignoring().antMatchers("/api/v1/users");
+        web.ignoring().antMatchers("/api/v1/**");
+        web.ignoring().antMatchers("/api/v1/registration/**");
+        web.ignoring().antMatchers("/api/v1/home");
+
     }
 }
 

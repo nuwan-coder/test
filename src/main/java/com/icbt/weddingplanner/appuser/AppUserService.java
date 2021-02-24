@@ -1,6 +1,9 @@
 package com.icbt.weddingplanner.appuser;
 
 import com.icbt.weddingplanner.controller.RegistrationRequest;
+import com.icbt.weddingplanner.serviceuser.ServiceUser;
+import com.icbt.weddingplanner.serviceuser.ServiceUserRepository;
+import com.icbt.weddingplanner.serviceuser.ServiceUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -43,9 +46,7 @@ public class AppUserService implements UserDetailsService {
         ));
     }
 
-    public List<AppUser> getUser() {
-
+    public List<AppUser> getUser(){
         return appUserRepository.findAll();
-
     }
 }
