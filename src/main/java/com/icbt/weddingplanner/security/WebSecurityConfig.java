@@ -1,6 +1,5 @@
 package com.icbt.weddingplanner.security;
 
-import com.icbt.weddingplanner.appuser.AppUserRole;
 import com.icbt.weddingplanner.appuser.AppUserService;
 import com.icbt.weddingplanner.jwt.JwtTokenVerifier;
 import com.icbt.weddingplanner.jwt.JwtUsernameAndPasswordAuthenticationFilter;
@@ -48,10 +47,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/api/v1/**");
         web.ignoring().antMatchers("/api/v1/registration/**");
         web.ignoring().antMatchers("/api/v1/home");
-
+        web.ignoring().antMatchers("/api/v1/**");
     }
 }
 

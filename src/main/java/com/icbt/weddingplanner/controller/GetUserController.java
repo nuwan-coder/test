@@ -5,9 +5,7 @@ import com.icbt.weddingplanner.appuser.AppUserService;
 import com.icbt.weddingplanner.serviceuser.ServiceUser;
 import com.icbt.weddingplanner.serviceuser.ServiceUserService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +20,11 @@ public class GetUserController {
     @GetMapping
     public List<ServiceUser> getUser(){
         return serviceUserService.getUsers();
+    }
+
+    @PostMapping
+    public List<ServiceUser> selectSuitableUsers(@RequestBody SelectServiceRequest selectServiceRequest){
+        return serviceUserService.getSuitableService(selectServiceRequest);
     }
 
 }

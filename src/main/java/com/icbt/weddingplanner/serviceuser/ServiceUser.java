@@ -28,7 +28,7 @@ public class ServiceUser {
     private String address;
     private String contactNo;
     private String email;
-    private String pricePerPlate;
+    private Double pricePerPlate;
     private String password;
     private AppUserRole appUserRole;
 
@@ -44,7 +44,7 @@ public class ServiceUser {
         this.address = address;
         this.contactNo = contactNo;
         this.email = email;
-        this.pricePerPlate = pricePerPlate;
+        this.pricePerPlate = Double.parseDouble(pricePerPlate);
         this.password = password;
         this.appUserRole = appUserRole;
     }
